@@ -47,8 +47,16 @@
  *
  * The mainPage value must match a key in the PAGES object exactly.
  */
+import Preventivo from './pages/Preventivo';
+import __Layout from './Layout.jsx';
 
-export const pagesConfig = {
-	Pages: {}
+
+export const PAGES = {
+    "Preventivo": Preventivo,
 }
 
+export const pagesConfig = {
+    mainPage: "Preventivo",
+    Pages: PAGES,
+    Layout: __Layout,
+};
