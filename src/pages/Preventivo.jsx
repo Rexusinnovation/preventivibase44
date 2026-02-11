@@ -100,6 +100,93 @@ export default function Preventivo() {
       privacy_accepted: formData.privacy,
     });
 
+    // Email a Rexus Innovation
+    const emailToRexus = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
+        <div style="background: linear-gradient(to right, #D4AF37, #F0D060); height: 4px; margin-bottom: 20px;"></div>
+        <h2 style="color: #1a1a1a; font-size: 24px; font-weight: bold; margin-bottom: 20px;">Nuova richiesta di preventivo</h2>
+        
+        <div style="background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+          <h3 style="color: #1a1a1a; font-size: 18px; font-weight: bold; margin-bottom: 15px;">Informazioni di contatto</h3>
+          <p style="margin: 8px 0;"><strong>Nome:</strong> ${formData.name}</p>
+          <p style="margin: 8px 0;"><strong>Email:</strong> <span style="color: #D4AF37;">${formData.email}</span></p>
+          ${formData.phone ? `<p style="margin: 8px 0;"><strong>Telefono:</strong> ${formData.phone}</p>` : ''}
+          ${formData.zip ? `<p style="margin: 8px 0;"><strong>CAP:</strong> ${formData.zip}</p>` : ''}
+        </div>
+
+        <div style="background-color: white; padding: 20px; border-radius: 10px;">
+          <h3 style="color: #1a1a1a; font-size: 18px; font-weight: bold; margin-bottom: 15px;">Dettagli del progetto</h3>
+          <p style="margin: 8px 0;"><strong>Tipo di progetto:</strong> ${formData.project_type}</p>
+          <p style="margin: 8px 0;"><strong>Budget:</strong> ${formData.budget}</p>
+          <p style="margin: 8px 0;"><strong>Tempistiche:</strong> ${formData.timeline}</p>
+          <p style="margin: 8px 0;"><strong>Obiettivo del progetto:</strong></p>
+          <div style="background-color: #f5f5f5; padding: 10px; border-left: 3px solid #D4AF37; margin-top: 5px;">
+            ${formData.project_objective}
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="mailto:${formData.email}" style="display: inline-block; background: linear-gradient(to right, #D4AF37, #F0D060); color: white; padding: 12px 30px; text-decoration: none; border-radius: 8px; font-weight: bold;">Rispondi al cliente</a>
+        </div>
+      </div>
+    `;
+
+    await base44.integrations.Core.SendEmail({
+      from_name: "Rexus Innovation - Preventivi",
+      to: "info@rexusinnovation.it",
+      subject: "Nuova richiesta di preventivo",
+      body: emailToRexus,
+    });
+
+    // Email di conferma al cliente
+    const emailToClient = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <h2 style="color: #1a1a1a; font-size: 28px; font-weight: bold; margin-bottom: 10px;">Ciao ${formData.name.split(' ')[0]}</h2>
+        
+        <p style="color: #1a1a1a; font-size: 16px; line-height: 1.6; margin: 20px 0;">
+          grazie per averci contattato! 🚀
+        </p>
+        
+        <p style="color: #1a1a1a; font-size: 16px; line-height: 1.6; margin: 20px 0;">
+          Abbiamo ricevuto la tua richiesta di preventivo e il nostro team sta già analizzando tutte le informazioni per offrirti la soluzione digitale più adatta alle tue esigenze.
+        </p>
+
+        <div style="background-color: #f5f5f5; padding: 20px; border-radius: 10px; border-left: 4px solid #D4AF37; margin: 30px 0;">
+          <h3 style="color: #1a1a1a; font-size: 18px; font-weight: bold; margin-bottom: 10px;">🛠️ Cosa succede ora?</h3>
+          <p style="color: #1a1a1a; font-size: 14px; line-height: 1.6; margin: 0;">
+            Entro 24/48 ore riceverai un'email con una proposta personalizzata basata sui dettagli che ci hai fornito.
+          </p>
+        </div>
+
+        <p style="color: #1a1a1a; font-size: 16px; line-height: 1.6; margin: 20px 0;">
+          Se hai bisogno di aggiungere ulteriori informazioni, non esitare a rispondere a questa email.
+        </p>
+
+        <p style="color: #1a1a1a; font-size: 16px; line-height: 1.6; margin: 20px 0;">
+          Nel frattempo, puoi scoprire di più su di noi visitando il nostro sito: 
+          <a href="https://www.rexusinnovation.it" style="color: #D4AF37; text-decoration: none; font-weight: bold;">www.rexusinnovation.it</a>
+        </p>
+
+        <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #e0e0e0; text-align: center;">
+          <h3 style="color: #1a1a1a; font-size: 18px; font-weight: bold; margin-bottom: 10px;">Rexus Innovation®</h3>
+          <p style="color: #666; font-size: 14px; margin: 5px 0;">💡 Creatività. Innovazione. Soluzioni digitali su misura.</p>
+          <p style="color: #D4AF37; font-size: 14px; margin: 10px 0;">
+            📧 <a href="mailto:info@rexusinnovation.it" style="color: #D4AF37; text-decoration: none;">info@rexusinnovation.it</a>
+          </p>
+          <p style="color: #666; font-size: 14px; margin: 5px 0;">
+            📱 Seguici su Instagram: <a href="https://instagram.com/rexusinnovation" style="color: #D4AF37; text-decoration: none;">@rexusinnovation</a>
+          </p>
+        </div>
+      </div>
+    `;
+
+    await base44.integrations.Core.SendEmail({
+      from_name: "Rexus Innovation",
+      to: formData.email,
+      subject: `Ciao ${formData.name.split(' ')[0]}`,
+      body: emailToClient,
+    });
+
     setIsSubmitting(false);
     setIsComplete(true);
     setCurrentStep(TOTAL_STEPS);
