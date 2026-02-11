@@ -18,10 +18,10 @@ export default function StepProjectType({ value, onChange, onNext, onPrev, error
       transition={{ duration: 0.5 }}
       className="px-4"
     >
-      <h2 className="text-2xl md:text-3xl font-bold text-center mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+      <h2 className="text-2xl md:text-3xl font-bold text-center mb-2 text-gray-900" style={{ fontFamily: 'Montserrat, sans-serif' }}>
         Che tipo di progetto vuoi?
       </h2>
-      <p className="text-[#8a8a9a] text-center mb-8">
+      <p className="text-gray-600 text-center mb-8">
         Seleziona la tipologia che meglio descrive le tue esigenze
       </p>
 
@@ -38,12 +38,12 @@ export default function StepProjectType({ value, onChange, onNext, onPrev, error
                 relative flex flex-col items-center gap-3 p-6 rounded-2xl border-2 transition-all duration-300 cursor-pointer
                 ${isSelected
                   ? "border-[#D4AF37] bg-[#D4AF37]/10 shadow-[0_0_20px_rgba(212,175,55,0.15)]"
-                  : "border-[#1e1e2e] bg-[#12121a] hover:border-[#2e2e3e] hover:bg-[#16161f]"
+                  : "border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50"
                 }
               `}
             >
-              <Icon className={`w-8 h-8 ${isSelected ? "text-[#D4AF37]" : "text-[#5a5a6a]"}`} />
-              <span className={`text-sm font-medium ${isSelected ? "text-[#D4AF37]" : "text-[#a0a0b0]"}`}>
+              <Icon className={`w-8 h-8 ${isSelected ? "text-[#D4AF37]" : "text-gray-500"}`} />
+              <span className={`text-sm font-medium ${isSelected ? "text-[#D4AF37]" : "text-gray-700"}`}>
                 {opt.label}
               </span>
               {isSelected && (
@@ -59,13 +59,13 @@ export default function StepProjectType({ value, onChange, onNext, onPrev, error
       <div className="flex justify-between max-w-md mx-auto">
         <button
           onClick={onPrev}
-          className="flex items-center gap-2 px-5 py-3 text-[#8a8a9a] hover:text-white transition-colors"
+          className="flex items-center gap-2 px-5 py-3 text-gray-600 hover:text-gray-900 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" /> Indietro
         </button>
         <button
           onClick={onNext}
-          className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#F0D060] text-[#0a0a0f] font-semibold rounded-xl hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300"
+          className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#F0D060] text-white font-semibold rounded-xl hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300"
         >
           Avanti <ArrowRight className="w-4 h-4" />
         </button>

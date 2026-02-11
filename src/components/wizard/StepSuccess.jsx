@@ -17,20 +17,20 @@ export default function StepSuccess({ onReset }) {
         className="mb-8"
       >
         <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#F0D060] flex items-center justify-center shadow-[0_0_40px_rgba(212,175,55,0.3)]">
-          <CheckCircle className="w-12 h-12 text-[#0a0a0f]" />
+          <CheckCircle className="w-12 h-12 text-white" />
         </div>
       </motion.div>
 
-      <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900" style={{ fontFamily: 'Montserrat, sans-serif' }}>
         <span className="text-gold-gradient">Grazie!</span>
       </h2>
-      <p className="text-[#8a8a9a] text-lg mb-10 max-w-md">
+      <p className="text-gray-600 text-lg mb-10 max-w-md">
         Riceverai il tuo preventivo personalizzato al più presto. Rexus Innovation® è già al lavoro per te 🚀
       </p>
 
       <button
         onClick={onReset}
-        className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#F0D060] text-[#0a0a0f] font-semibold rounded-xl hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] transition-all duration-300 hover:scale-105"
+        className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#F0D060] text-white font-semibold rounded-xl hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] transition-all duration-300 hover:scale-105"
       >
         Nuova richiesta
       </button>

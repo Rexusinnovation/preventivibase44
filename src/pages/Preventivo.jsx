@@ -10,7 +10,7 @@ import StepTimeline from "../components/wizard/StepTimeline";
 import StepContact from "../components/wizard/StepContact";
 import StepSuccess from "../components/wizard/StepSuccess";
 
-const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6968c413352d286df5f1c622/9dba7e310_generated-icon.png";
+const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/698c9e9a6e02fa4dbabadcb7/3740dff44_rexus_logo.png";
 
 const TOTAL_STEPS = 6;
 
@@ -121,7 +121,7 @@ export default function Preventivo() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-white flex items-center justify-center p-4">
       {/* Background effects */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#D4AF37]/5 rounded-full blur-[120px]" />
@@ -130,7 +130,7 @@ export default function Preventivo() {
 
       <div className="relative w-full max-w-lg">
         {/* Card */}
-        <div className="bg-[#0e0e16]/80 backdrop-blur-xl border border-[#1e1e2e] rounded-3xl shadow-2xl overflow-hidden">
+        <div className="bg-white border border-gray-200 rounded-3xl shadow-2xl overflow-hidden">
           {/* Progress */}
           {!isComplete && <ProgressBar currentStep={currentStep} totalSteps={TOTAL_STEPS} />}
 
@@ -199,7 +199,7 @@ export default function Preventivo() {
         </div>
 
         {/* Footer */}
-        <p className="text-center text-[#3a3a4a] text-xs mt-6">
+        <p className="text-center text-gray-400 text-xs mt-6">
           © 2025 Rexus Innovation® — Tutti i diritti riservati
         </p>
       </div>
