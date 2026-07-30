@@ -1,0 +1,64 @@
+{
+  "name": "QuoteRequest",
+  "type": "object",
+  "properties": {
+    "project_type": {
+      "type": "string",
+      "enum": [
+        "Sito Web",
+        "App Mobile",
+        "Software Personalizzato",
+        "Altro"
+      ],
+      "description": "Tipo di progetto"
+    },
+    "project_objective": {
+      "type": "string",
+      "description": "Obiettivo del progetto"
+    },
+    "budget": {
+      "type": "string",
+      "enum": [
+        "Meno di 1.000\u20ac",
+        "1.000\u20ac - 5.000\u20ac",
+        "5.000\u20ac - 10.000\u20ac",
+        "Oltre 10.000\u20ac"
+      ],
+      "description": "Budget indicativo"
+    },
+    "timeline": {
+      "type": "string",
+      "enum": [
+        "Il prima possibile",
+        "1-2 mesi",
+        "3+ mesi"
+      ],
+      "description": "Tempistiche ideali"
+    },
+    "name": {
+      "type": "string",
+      "description": "Nome e Cognome"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Telefono"
+    },
+    "zip": {
+      "type": "string",
+      "description": "CAP"
+    },
+    "privacy_accepted": {
+      "type": "boolean",
+      "description": "Privacy policy accettata"
+    }
+  },
+  "required": [
+    "project_type",
+    "name",
+    "email"
+  ]
+}
